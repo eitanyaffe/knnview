@@ -39,7 +39,7 @@ export KNNVIEW_DIR=~/work/knnview
 
 To run knnview on a toy example, using simulated data:
 
-1. Go to KNNVIEW_DIR directory and start an R session.
+1. Go to the KNNVIEW_DIR directory and start an R session.
 ```
 % cd ${KNNVIEW_DIR}
 % R
