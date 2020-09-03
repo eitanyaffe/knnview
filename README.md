@@ -29,10 +29,10 @@ digest. To install this packages run within an R session:
 ```
 
 3. Set the environment variable KNNVIEW_DIR to point to the knnview
-directory you've created. For example, if using bash, you can add the following line to your
-.bashrc (or ~/.zshrc in newer versions of MacOS):
+directory you've created. Add the following line at the end of your 
+.bashrc (or ~/.zshrc if using a new version of MacOS):
 ```
-% export KNNVIEW_DIR=~/work/knnview
+export KNNVIEW_DIR=~/work/knnview
 ```
 
 ## Quick Start
