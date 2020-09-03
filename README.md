@@ -1,15 +1,3 @@
-# knnview
-
-# install
-% git clone
-% cd knnview
-% export KNNVIEW_DIR=`pwd` >> ~/.zshrc
-
-# running
-% R
-> source("examples/sim_example.r")
-
-
 # knnview: Visualizing nearest neighbors of high-dimensional samples
 
 knnview is a shiny app developed to visualize and explore the nearest 
