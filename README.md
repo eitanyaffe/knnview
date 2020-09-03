@@ -1,4 +1,5 @@
-# knnview: Visualizing nearest neighbors of high-dimensional samples
+# knnview: Visualizing nearest neighbors of high-dimensional
+metagenomic samples
 
 knnview is a shiny app developed to visualize and explore the nearest 
 neighbors of labeled samples.
