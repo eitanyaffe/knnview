@@ -68,7 +68,7 @@ The tool expected to input data structures.
 See the `examples/sim_example.r` script for a simple usage example. 
 
 To initialize the session you must call the
-`knnview.init`. Parameters:
+`knnview.init` function. The function parameters are:
 * `df`: data.frame of samples.
 * `D`: Distance matrix of samples.
 * k: k value used in kNN (default: 10).
