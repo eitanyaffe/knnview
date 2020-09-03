@@ -29,7 +29,7 @@ digest. To install this packages run within an R session:
 ```
 
 3. Set the environment variable KNNVIEW_DIR to point to the knnview
-directory you've created. Add the following line at the end of your 
+directory you've created. You can add the following line at the end of your 
 .bashrc (or ~/.zshrc if using a new version of MacOS):
 ```
 export KNNVIEW_DIR=~/work/knnview
@@ -37,7 +37,7 @@ export KNNVIEW_DIR=~/work/knnview
 
 ## Quick Start
 
-To run knnview on a toy example of simulated data:
+To run knnview on a toy example, using simulated data:
 
 1. Go to KNNVIEW_DIR directory and start an R session.
 ```
