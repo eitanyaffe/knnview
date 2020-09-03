@@ -57,11 +57,11 @@ To run knnview on a toy example, using simulated data:
 
 ## Input
 
-The tool expected to input data structures.
+There are two mandatory input data structures.
 
-* A data.frame that associates samples and clusters, plus some sample
+1. A data.frame that associates samples and clusters, plus some sample
   metadata. The two required fields are the sample id and cluster id.
-* A sample distance matrix, with rows and columns named by sample id.
+2. A sample distance matrix, with rows and columns named by sample id.
 
 ## Usage
 
