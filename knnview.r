@@ -169,8 +169,8 @@ knnview.cluster=function(
     field.id="id",                 # sample column in df .
     field.cluster="cluster",       # cluster column in df.
     fields=c("id", "cluster"),     # columns in df used for text/color annotation.
-    init.field.col=c("cluster"),   # initial field used for color.
-    init.field.label=c("cluster"), # initial field used for label.
+    init.field.col="cluster",      # initial field used for color.
+    init.field.label="cluster",    # initial field used for label.
     plot.all=T,                    # if false, plots only clusters involved in non-perfect scores.
     use.df.xy=F                    # override t-SNE coords with user-specified x/y coords in the df.
     )
