@@ -3,7 +3,7 @@
 knnview is a shiny app developed to visualize and explore the nearest 
 neighbors of labeled samples.
 
-This shiny app was developed by Eitan Yaffe. It is distributed under the GNU General
+This tool was developed by Eitan Yaffe. It is distributed under the GNU General
 Public License v3.0. If you have questions or comments please contact Eitan
 Yaffe at eitan.yaffe@gmail.com.
 
