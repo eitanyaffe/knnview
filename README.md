@@ -37,7 +37,7 @@ export KNNVIEW_DIR=~/work/knnview
 
 ## Quick Start
 
-To run knnview on a toy example  and run the following.
+To run knnview on a toy example of simulated data:
 
 1. Go to KNNVIEW_DIR directory and start an R session.
 ```
@@ -55,7 +55,15 @@ To run knnview on a toy example  and run the following.
 > rl()
 ```
 
-## Startup
+## Input
+
+The tool expected to input data structures.
+
+* A data.frame that associates samples and clusters, plus some sample
+  metadata. The two required fields are the sample id and cluster id.
+* A sample distance matrix, with rows and columns named by sample id.
+
+## Usage
 
 See the `examples/sim_example.r` script for a simple usage example. 
 
