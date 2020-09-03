@@ -9,7 +9,7 @@ Yaffe at eitan.yaffe@gmail.com.
 
 ## Pre-requisites
 
-The tool requires this R packages installed: shiny, Rtsne, MASS,
+The tool requires these R packages installed: shiny, Rtsne, MASS,
 digest. To install this packages run within an R session:
 ```
 > install.packages(c("shiny", "Rtsne", "MASS", "digest"))
@@ -23,13 +23,13 @@ digest. To install this packages run within an R session:
 % cd ~/work
 ```
 
-2. Get source code from github.
+2. Get the source code from github.
 ```
 % git clone https://github.com/eitanyaffe/knnview.git
 ```
 
-3. Set the environment variable HPIPE_DIR to point to the hpipe dir.
-For example, if using bash, you can add the following line to your
+3. Set the environment variable KNNVIEW_DIR to point to the knnview
+directory you've created. For example, if using bash, you can add the following line to your
 .bashrc (or ~/.zshrc in newer versions of MacOS):
 ```
 % export KNNVIEW_DIR=~/work/knnview
