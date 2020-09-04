@@ -13,7 +13,7 @@ ui = fluidPage(
                               hr(),
                               sliderInput("nn.barplot.count", "NN count (barplot)",min=10, max=1000, value=50),
                               sliderInput("nn.edge.count", "NN count (edges)",min=1, max=.knnview$k, value=.knnview$k),
-                              sliderInput("plot.cex", "Plot circle size",min=1, max=10, value=2),
+                              sliderInput("plot.cex", "Plot circle size",min=0, max=6, value=2, step=0.5),
                               hr(),
                               checkboxInput("show.legend", "Show color legend (middle panel)", T),
                               checkboxInput("nn.only.cluster", "Show only subject samples (right panel)", F),
