@@ -267,10 +267,11 @@ server = function(input, output, session) {
         xcat1=function(msg) { xcat0(paste0("&nbsp;&nbsp;&nbsp;&nbsp", msg, collapse=""))}
         xnew=function() { xcat0("")}
 
-        xcat0("knnview was developed in September 2020 by Eitan Yaffe, email eitan.yaffe@gmail.com.")
+        xcat0("knnview 1.0, developed Eitan Yaffe (September 2020), email: eitan.yaffe@gmail.com.")
         xnew()
-        xcat0("Downloaded from https://github.com/eitanyaffe/knnview.")
-        xcat0("The package is subject to the terms and conditions as defined in the file 'LICENSE'.")
+        xcat0("Repository: https://github.com/eitanyaffe/knnview.")
+        xnew()
+        xcat0("The package is subject to the terms and conditions as defined in the 'LICENSE' file.")
 
         result
     }
