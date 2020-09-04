@@ -1,7 +1,11 @@
 # knnview: Visualizing nearest neighbors of high-dimensional metagenomic samples
 
 knnview is a shiny app developed to visualize and explore the nearest 
-neighbors of labeled samples.
+neighbors of labeled samples. For each sample, the purity score is
+defined to be the fraction of the k nearest neighbours
+(kNN) that share the cluster label of the sample. The tool
+brings attention to samples with non-perfect scores (i.e. <1), and allows to
+explore the disribution of distances between a sample and its neighbors. 
 
 This tool was developed by Eitan Yaffe. It is distributed under the GNU General
 Public License v3.0. If you have questions or comments please contact Eitan
@@ -104,9 +108,6 @@ function:
 > rl()
 ```
 
-Hit the Help button to see a brief explanation of how to operate the
-app, including the use of the mouse and keyboard.
-
 If the session dies for some reason you can always reload using the
 `rl` function. 
 
@@ -114,12 +115,30 @@ If the session dies for some reason you can always reload using the
 
 The 2D organization of samples is shown in the middle panel. The panel
 is interactive and allows to zoom in and out, and select
-samples. 
+samples. The color of the outer circles around samples signify the purity
+ score:
+ * Black: Purity score in the range [0,0.8)
+ * Dark gray: Purity score in the range [0.8,0.9)
+ * Light gray: Purity score in the range [0.9,1.0)
 
-The similarity index (1-distance) for a selected sample is shown on the right panel.
+The similarity index (equal to the distance minus 1) for the selected
+sample is shown on the right panel. Colors and labels match the middle panel.
 
-Viewing parameters, like the coloring and labeling schemes are
+Viewing parameters, like the color and textual label of samples are
 controlled using the left panel.
+* NN-count (edges): Controls the number of kNN for which an edge is
+  drawn in the middle panel.
+* NN-count (barplot): Controls the number of neighbours shown on the
+  right panel.
+* Show only cluster NN: Show on right panel only samples of selected
+  cluster.
+* Show labels: Show text labels in middle plot. Also controlled with
+  Shift + L. 
+* Show legend: Show legend of colors in middle panel.
+* Label field: Add text labels to samples using this sample metadata field.
+* Color field: Color samples using this sample metadata field.
+* Plot circle size: Control size of sample circle.
 
-
+Hit the Help button to see a brief explanation of how to operate the
+app, including the use of the mouse and keyboard.
 

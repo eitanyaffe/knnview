@@ -269,7 +269,7 @@ server = function(input, output, session) {
 
         xcat0("knnview was developed in September 2020 by Eitan Yaffe, email eitan.yaffe@gmail.com.")
         xnew()
-        xcat0("See https://github.com/eitanyaffe/knnview for updates.")
+        xcat0("Downloaded from https://github.com/eitanyaffe/knnview.")
         xcat0("The package is subject to the terms and conditions as defined in the file 'LICENSE'.")
 
         result
