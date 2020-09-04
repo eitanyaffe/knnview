@@ -10,7 +10,7 @@ explore the disribution of distances between a sample and its neighbors.
 This tool was developed by Eitan Yaffe. It is distributed under the GNU General
 Public License v3.0. If you have questions or comments please contact eitan.yaffe@gmail.com.
 
-## Pre-requisites
+## Prerequisites
 
 The tool requires these R packages installed: shiny, Rtsne, digest. To install this packages run within an R session:
 ```
