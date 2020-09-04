@@ -104,8 +104,13 @@ plot.tnse.internal=function(df, df.purity, col.field, label.field,
     if (show.legend) {
         ll = col.legend[[col.field]]
         cex = ifelse(length(ll$vals) < 10, 1, 0.7)
-        if (length(ll$vals) < 100)
-            legend("topright", title=col.field, legend=ll$vals, fill=ll$cols, border=NA, cex=cex, box.lwd=0)
+        max.legend = .knnview$max.legend
+        if (length(ll$vals) > max.legend) {
+            ix = floor((1:max.legend) * length(ll$vals)/max.legend)
+            ll$vals = ll$vals[ix]
+            ll$cols = ll$cols[ix]
+        }
+        legend("topright", title=col.field, legend=ll$vals, fill=ll$cols, border=NA, cex=cex, box.lwd=0)
     }
     box()
 }
@@ -141,14 +146,18 @@ plot.nn=function(df, df.plot, D, col.field, label.field, show.labels,
     mai[2] = 1.2
     par(mai=mai)
 
+    score = df$score[match(selected.sample, df$id)]
+    main = sprintf("Nearest neighbours of sample %s\npurity score=%.2f", selected.sample, score)
+
     mm = barplot(1-Dx, names.arg=names(Dx), col=Dcols, las=2, xlim=c(0,mmax), width=0.6, space=0.4,
-                 horiz=T, xlab="Similarity", main=paste("Nearest neighbours of", selected.sample), border=NA)
+                 horiz=T, xlab="Similarity", border=NA)
 
     rect(xleft=0, xright=1, ybottom=mm[dim(mm)[1]-ksize]+0.4, ytop=mm[dim(mm)[1]]+0.5, col="lightgray", border=NA)
 
     mm = barplot(1-Dx, names.arg=names(Dx), col=Dcols, las=2, xlim=c(0,mmax), width=0.6, space=0.4, add=T,
-                 horiz=T, xlab="distance", main=paste("Nearest neighbours of", selected.sample), border=NA)
-    # abline(h=mm[dim(mm)[1]-ksize]+0.4, lty=2, col=1)
+                 horiz=T, xlab="distance", border=NA)
+
+    title(main=main)
 
     if (show.labels) {
         ix = match(names(Dx), df$id)
@@ -173,7 +182,8 @@ knnview.cluster=function(
     init.field.col="cluster",      # initial field used for color.
     init.field.label="cluster",    # initial field used for label.
     plot.all=T,                    # if false, plots only clusters involved in non-perfect scores.
-    use.df.xy=F                    # override t-SNE coords with user-specified x/y coords in the df.
+    use.df.xy=F,                   # override t-SNE coords with user-specified x/y coords in the df.
+    max.items.in.legend=40         # max items displayed in color legend
     )
 {
     df$id = df[,field.id]
@@ -224,6 +234,9 @@ knnview.cluster=function(
     aids = c(df.purity$id, df.purity$oneighbor)
     sids = sort(unique(df$cluster[match(aids,df$id)]))
 
+    ix =  match(df$id, df.purity$id)
+    df$score = ifelse(!is.na(ix), df.purity$score[ix], 1)
+
     if (plot.all || dim(D)[1] < 10) {
         df.plot = df
         D.plot = D
@@ -263,6 +276,9 @@ knnview.cluster=function(
 
     # matrix
     result$D = D
+
+    # max items in legend
+    result$max.legend = max.items.in.legend
 
     result$NN = get.nn(D, df$id, k)
 

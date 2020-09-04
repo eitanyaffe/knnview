@@ -86,6 +86,7 @@ To initialize the session you must call the
   scores (default: T).
 * `use.df.xy`: override t-SNE coords with user-specified x/y coords in
   the df (default: F).
+* `max.items.in.legend`: max items displayed in color legend (default: 40).
 
 Any fields defined using the `fields` will be available for both
 colors and text labels in the app.
