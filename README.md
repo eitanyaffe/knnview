@@ -104,7 +104,7 @@ cluster.
 
 Example of usage:
 ```
-> knnview.init(k=10, df=df, D=D, field.id="sample", field.cluster="cluster")
+> result = knnview.init(k=10, df=df, D=D, field.id="sample", field.cluster="cluster")
 ```
 
 To start the app after calling `knnview.init` you must call the `rl()`
