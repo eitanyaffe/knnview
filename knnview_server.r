@@ -75,11 +75,26 @@ server = function(input, output, session) {
             return (NULL)
         }
         np = nearPoints(.knnview$df.plot, xvar="x", yvar="y", input$click, maxpoints=1, threshold=20)
-        if (dim(np)[1] == 1)
-            info$selected.sample = np$id[1]
-        else
-            info$selected.sample = NA
+        isolate({
+            if (dim(np)[1] == 1) {
+                info$selected.sample = np$id[1]
+                updateTextInput(session, "selected.sample", value=info$selected.sample)
+                updateSelectInput(session, "selected.sample", selected=info$selected.sample)
+            } else {
+                info$selected.sample = NA
+                updateSelectInput(session, "selected.sample", selected="none")
+            }
+        })
     })
+
+    observeEvent(input$selected.sample, {
+        isolate({
+            if (is.element(input$selected.sample, .knnview$df.plot$id))
+                info$selected.sample = input$selected.sample
+            if (input$center.selection)
+                zoom.selected()
+        })
+    } )
 
     ###########################################################################
     # hover
@@ -170,6 +185,19 @@ server = function(input, output, session) {
                 ranges$y = center.range(ranges$y, input$hover$y)
             })
         }
+    }
+
+    zoom.selected=function() {
+        navigate.push.history()
+        isolate({
+            ix = match(input$selected.sample, .knnview$df.plot$id)
+            if (!is.na(ix)) {
+                x = .knnview$df.plot$x[ix]
+                y = .knnview$df.plot$y[ix]
+                ranges$x = center.range(ranges$x, x)
+                ranges$y = center.range(ranges$y, y)
+            }
+        })
     }
 
     zoom.out=function() {

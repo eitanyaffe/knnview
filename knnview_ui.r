@@ -1,20 +1,27 @@
 ui = fluidPage(
     fluidRow(
         column(width = 12, class = "well",
-               h4(.knnview$title),
                fluidRow(
                    column(width = 2,
                           fluidRow(
+                              h2("knnview"),
+                              h4(.knnview$title),
                               selectInput("label.field", label="Label field",
                                           choices=.knnview$fields, selected=.knnview$init.field.label),
                               selectInput("col.field", label="Color field",
                                           choices=.knnview$fields, selected=.knnview$init.field.col),
+                              hr(),
                               sliderInput("nn.barplot.count", "NN count (barplot)",min=10, max=1000, value=50),
                               sliderInput("nn.edge.count", "NN count (edges)",min=1, max=.knnview$k, value=.knnview$k),
                               sliderInput("plot.cex", "Plot circle size",min=1, max=10, value=2),
-                              checkboxInput("nn.only.cluster", "Show only cluster NN", F),
-                              checkboxInput("show.labels", "Show labels", F),
-                              checkboxInput("show.legend", "Show legend", T),
+                              hr(),
+                              checkboxInput("show.legend", "Show color legend (middle panel)", T),
+                              checkboxInput("nn.only.cluster", "Show only subject samples (right panel)", F),
+                              checkboxInput("show.labels", "Show sample labels", F),
+                              hr(),
+                              selectInput("selected.sample", label="Selected sample",
+                                          choices=c("none", .knnview$df$id), selected="none"),
+                              checkboxInput("center.selection", "Center on selected sample", F),
                               hr(),
                               actionButton("help", "Help"),
                               actionButton("about", "About")

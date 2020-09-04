@@ -76,6 +76,7 @@ plot.tnse.internal=function(df, df.purity, col.field, label.field,
 
     plot.new()
     plot.window(xlim=xlim, ylim=ylim)
+    title(main="2D ordination plot")
 
     if (!is.na(selected.sample)) {
         NN.ids = as.vector(df.NN[df.NN$id == selected.sample,-1])
@@ -276,7 +277,7 @@ knnview.cluster=function(
     result$xlim.max = extend.range(range(df.plot$x), 0.08)
     result$ylim.max = extend.range(range(df.plot$y), 0.08)
 
-    result$title = paste0("K=", k, ", total N=", dim(D)[1], ", plotted N=", dim(df.plot)[1])
+    result$title = paste0("[ k=", k, ", #samples=", dim(df.plot)[1], " ]")
 
     # matrix
     result$D = D
