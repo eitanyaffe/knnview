@@ -71,6 +71,9 @@ plot.tnse.internal=function(df, df.purity, col.field, label.field,
         df = rbind(df[-ix,], df[ix,])
     }
 
+    in.range=function(v, lim) { v>=lim[1] & v<=lim[2] }
+    df = df[in.range(df$x, xlim) & in.range(df$y, ylim),]
+
     plot.new()
     plot.window(xlim=xlim, ylim=ylim)
 
@@ -250,7 +253,7 @@ knnview.cluster=function(
         if (!is.element("x", colnames(df)) || !is.element("y", colnames(df)))
             stop("when use.df.xy is TRUE fields 'x' and 'y' must be supplied in the df")
     } else {
-        cat(sprintf("arranging samples using 2D t-SNE, with perplexity=k\n"))
+        cat(sprintf("Arranging samples using 2D t-SNE, with perplexity=k\n"))
         rtsne = Rtsne(X=D.plot, is_distance=T, perplexity=k)
         df.plot$x = rtsne$Y[,1]
         df.plot$y = rtsne$Y[,2]
