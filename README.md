@@ -37,7 +37,7 @@ directory you've created. You can add the following line at the end of your
 export KNNVIEW_DIR=~/work/knnview
 ```
 
-## Quick Start
+## Quick start
 
 To run knnview on a toy example, using simulated data:
 
@@ -116,7 +116,7 @@ function:
 If the session dies for some reason you can always reload using the
 `rl` function. 
 
-## Application description
+## Application UI description
 
 The 2D organization of samples is shown in the middle panel. The panel
 is interactive and allows to zoom in and out, and select
