@@ -79,20 +79,22 @@ server = function(input, output, session) {
             if (dim(np)[1] == 1) {
                 info$selected.sample = np$id[1]
                 updateTextInput(session, "selected.sample", value=info$selected.sample)
-                updateSelectInput(session, "selected.sample", selected=info$selected.sample)
             } else {
                 info$selected.sample = NA
-                updateSelectInput(session, "selected.sample", selected="none")
+                updateTextInput(session, "selected.sample", value="")
             }
         })
     })
 
     observeEvent(input$selected.sample, {
         isolate({
-            if (is.element(input$selected.sample, .knnview$df.plot$id))
+            if (is.element(input$selected.sample, .knnview$df.plot$id)) {
                 info$selected.sample = input$selected.sample
-            if (input$center.selection)
-                zoom.selected()
+                if (input$center.selection)
+                    zoom.selected()
+            } else {
+                info$selected.sample = NA
+            }
         })
     } )
 
