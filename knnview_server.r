@@ -229,7 +229,6 @@ server = function(input, output, session) {
                "90"=zoom.in(),                 # Z
                "88"=zoom.center(),             # X
                "76"=labels.toggle(),           # L
-               "67"=labels.cluster.NN(),       # C
                "72"=help.event(),              # H
                cat(sprintf("unknown key pressed: %s\n", as.character(key))))
         cat("keyboard event done\n")
@@ -247,12 +246,11 @@ server = function(input, output, session) {
         xcat0("Hold the shift key while performing all action below.")
         xcat0("Keyboard keys:")
         xcat1("No key : Press mouse without keyboard to select sample. Press outside samples to cancel selection.")
-        xcat1("'x'    : Center on mouse location.")
-        xcat1("'z'    : Zoom in, on cursor or on marked rectangle, if selected.")
+        xcat1("'X'    : Center on mouse location.")
+        xcat1("'Z'    : Zoom in, on cursor or on marked rectangle, if selected.")
         xcat1("'-'    : Zoom out.")
         xcat1("'='    : Reset zoom.")
-        xcat1("'l'    : Toggle labels.")
-        xcat1("'c'    : Toggle 'show only cluster NN'.")
+        xcat1("'L'    : Toggle labels.")
         xcat1("'Delete' : Undo navigation.")
 
         result
