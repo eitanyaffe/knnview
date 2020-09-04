@@ -112,6 +112,14 @@ If the session dies for some reason you can always reload using the
 
 ## Application description
 
-Control viewing parameters using the left panel. See the 2D
-organization of samples in the middle panel. The similarity index
-(1-distance) for a selected sample is shown on the right panel.
+The 2D organization of samples is shown in the middle panel. The panel
+is interactive and allows to zoom in and out, and select
+samples. 
+
+The similarity index (1-distance) for a selected sample is shown on the right panel.
+
+Viewing parameters, like the coloring and labeling schemes are
+controlled using the left panel.
+
+
+
