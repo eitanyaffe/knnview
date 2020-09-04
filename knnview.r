@@ -105,6 +105,7 @@ plot.tnse.internal=function(df, df.purity, col.field, label.field,
         ll = col.legend[[col.field]]
         cex = ifelse(length(ll$vals) < 10, 1, 0.7)
         max.legend = .knnview$max.legend
+
         if (length(ll$vals) > max.legend) {
             ix = floor((1:max.legend) * length(ll$vals)/max.legend)
             ll$vals = ll$vals[ix]
@@ -194,7 +195,6 @@ knnview.cluster=function(
     if (length(all.ids) == 0) {
         stop(sprintf("The ids of the parameter 'df' (field: %s) and the columns and rows of the matrix 'D'", field.id))
     }
-    sprintf("Number of samples: %d\n", length(all.ids))
 
     # filter df
     df = df[is.element(df$id, all.ids),]
@@ -220,7 +220,7 @@ knnview.cluster=function(
     }
 
     # single run example
-    cat(sprintf("Computing purity scores for %d samples...\n", dim(D)[1]))
+    cat(sprintf("Computing purity scores fo %d samples, k=%d\n", dim(D)[1], k))
 
     if (!run.recursive) {
         weights = rep(1, dim(df)[1])
@@ -250,6 +250,7 @@ knnview.cluster=function(
         if (!is.element("x", colnames(df)) || !is.element("y", colnames(df)))
             stop("when use.df.xy is TRUE fields 'x' and 'y' must be supplied in the df")
     } else {
+        cat(sprintf("arranging samples using 2D t-SNE, with perplexity=k\n"))
         rtsne = Rtsne(X=D.plot, is_distance=T, perplexity=k)
         df.plot$x = rtsne$Y[,1]
         df.plot$y = rtsne$Y[,2]
@@ -291,15 +292,16 @@ knnview.cluster=function(
 
     result$k = k
 
+    cat(sprintf("knnview.init() done, number of non-pure samples: %d\n", sum(df.purity$score<1)))
     result
 }
 
 # wrapper function that support caching and prepares shiny app
-knnview.init=function(use.cache=F, ...)
+knnview.init=function(use.cache=F, df, D, ...)
 {
     key = digest(paste(unlist(list(...)), collapse="_"))
     if (!use.cache || !exists(".knnview") || .knnview$key != key) {
-        .knnview <<- knnview.cluster(...)
+        .knnview <<- knnview.cluster(df=df, D=D, ...)
         .knnview$key <<- key
     } else {
         cat(sprintf("Reloading shiny app using cached data\n"))
