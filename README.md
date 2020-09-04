@@ -14,7 +14,7 @@ Public License v3.0. If you have questions or comments please contact eitan.yaff
 
 The tool requires these R packages installed: shiny, Rtsne, digest. To install this packages run within an R session:
 ```
-> install.packages(c("shiny", "Rtsne", "MASS", "digest"))
+> install.packages(c("shiny", "Rtsne", "digest"))
 ```
 
 ## Installation
