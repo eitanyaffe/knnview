@@ -18,6 +18,6 @@ df = read.table(paste0(Sys.getenv("KNNVIEW_DIR"), "/examples/df.tab"))
 D = readRDS(paste0(Sys.getenv("KNNVIEW_DIR"), "/examples/D.rds"))
 
 # init
-rr = knnview.init(k=10, df=df, D=D, field.id="sample", field.cluster="cluster", use.df.xy=T)
+rr = knnview.init(k=10, df=df, D=D, field.id="sample", field.cluster="cluster")
 
 # rr contains all samples with imperfect scores
