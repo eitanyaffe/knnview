@@ -26,8 +26,8 @@ get.purity=function(D, ids, clusters, weights, k)
         NN.weights = weights[oo]
         ix = (NN.clusters == clusters[i])
         score = sum(NN.weights[ix]) / sum(NN.weights)
-        oneighbour = ifelse(any(!ix), ids[oo][which(!ix)[1]], NA)
-        result.i = data.frame(id=ids[i], cluster=clusters[i], score=score, oneighbour=oneighbour)
+        oneighbor = ifelse(any(!ix), ids[oo][which(!ix)[1]], NA)
+        result.i = data.frame(id=ids[i], cluster=clusters[i], score=score, oneighbor=oneighbor)
         result = rbind(result, result.i)
     }
     result
@@ -220,8 +220,8 @@ knnview.cluster=function(
         df.purity = get.purity.recursive(D=D, ids=df$id, clusters=df$cluster, k=k, min.score=min.score, max.iter=20)
     }
 
-    df.purity$ocluster = df$cluster[match(df.purity$oneighbour, df$id)]
-    aids = c(df.purity$id, df.purity$oneighbour)
+    df.purity$ocluster = df$cluster[match(df.purity$oneighbor, df$id)]
+    aids = c(df.purity$id, df.purity$oneighbor)
     sids = sort(unique(df$cluster[match(aids,df$id)]))
 
     if (plot.all || dim(D)[1] < 10) {
@@ -294,6 +294,8 @@ knnview.init=function(use.cache=F, ...)
     source(paste0(wdir, "knnview_server.r"), loca=T)
     .knnview$ui <<- ui
     .knnview$server <<- server
+
+    .knnview$df.purity
 }
 
 # helper function to reload

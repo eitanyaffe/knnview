@@ -95,6 +95,13 @@ The `use.df.xy` is useful when you have generated xy values for samples.
 The `plot.all` is allows to see all samples or limit view to clusters
 involved in non-pure samples (including neighboring clusters).
 
+The function returns a data.frame with all samples with a purity score
+smaller than 1. The `score` column is the purity score, the
+`oneighbor` column is the closest neighboring sample that is of a
+different cluster, and the `ocluster` column is the matching offending
+cluster.
+
+
 Example of usage:
 ```
 > knnview.init(k=10, df=df, D=D, field.id="sample", field.cluster="cluster")
