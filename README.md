@@ -85,10 +85,17 @@ To initialize the session you must call the
 * `use.df.xy`: override t-SNE coords with user-specified x/y coords in
   the df (default: F).
 
+Any fields defined using the `fields` will be available for both
+colors and text labels in the app.
+
+The `use.df.xy` is useful when you have generated xy values for samples.
+
+The `plot.all` is allows to see all samples or limit view to clusters
+involved in non-pure samples (including neighboring clusters).
+
 Example of usage:
 ```
-> knnview.init(k=10, df=ll$df, D=ll$D, field.id="sample",
-field.cluster="cluster", use.df.xy=T)
+> knnview.init(k=10, df=df, D=D, field.id="sample", field.cluster="cluster")
 ```
 
 To start the app after calling `knnview.init` you must call the `rl()`
@@ -97,5 +104,14 @@ function:
 > rl()
 ```
 
+Hit the Help button to see a brief explanation of how to operate the
+app, including the use of the mouse and keyboard.
+
 If the session dies for some reason you can always reload using the
 `rl` function. 
+
+## Application description
+
+Control viewing parameters using the left panel. See the 2D
+organization of samples in the middle panel. The similarity index
+(1-distance) for a selected sample is shown on the right panel.
