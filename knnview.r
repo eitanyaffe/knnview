@@ -302,7 +302,7 @@ knnview.cluster=function(
 # wrapper function that support caching and prepares shiny app
 knnview.init=function(use.cache=F, df, D, ...)
 {
-    key = digest(paste(unlist(list(...)), collapse="_"))
+    key = digest(paste(df$id,df$cluster,unlist(list(...)), collapse="_"))
     if (!use.cache || !exists(".knnview") || .knnview$key != key) {
         .knnview <<- knnview.cluster(df=df, D=D, ...)
         .knnview$key <<- key

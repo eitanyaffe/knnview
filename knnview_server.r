@@ -246,13 +246,13 @@ server = function(input, output, session) {
 
         xcat0("Hold the shift key while performing all action below.")
         xcat0("Keyboard keys:")
-        xcat1("No key : Press mouse without keyboard to select sample.")
-        xcat1("'X'    : Center on mouse location.")
-        xcat1("'Z'    : Zoom in on point, or on marked rectangle, if selected.")
-        xcat1("'+'    : Zoom out.")
-        xcat1("'_'    : Reset zoom.")
-        xcat1("'L'    : Toggle labels.")
-        xcat1("'C'    : Toggle 'show only cluster NN'.")
+        xcat1("No key : Press mouse without keyboard to select sample. Press outside samples to cancel selection.")
+        xcat1("'x'    : Center on mouse location.")
+        xcat1("'z'    : Zoom in, on cursor or on marked rectangle, if selected.")
+        xcat1("'-'    : Zoom out.")
+        xcat1("'='    : Reset zoom.")
+        xcat1("'l'    : Toggle labels.")
+        xcat1("'c'    : Toggle 'show only cluster NN'.")
         xcat1("'Delete' : Undo navigation.")
 
         result
