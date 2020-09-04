@@ -132,13 +132,13 @@ controlled using the left panel.
   right panel.
 * Show only cluster NN: Show on right panel only samples of selected
   cluster.
-* Show labels: Show text labels in middle plot. Also controlled with
-  Shift + L. 
+* Show labels: Show text labels in middle plot.
 * Show legend: Show legend of colors in middle panel.
 * Label field: Add text labels to samples using this sample metadata field.
 * Color field: Color samples using this sample metadata field.
 * Plot circle size: Control size of sample circle.
 
 Hit the Help button to see a brief explanation of how to operate the
-app, including the use of the mouse and keyboard.
+app, including the use of the mouse and keyboard. This includes useful
+keyboard shortcuts.
 
