@@ -228,18 +228,19 @@ server = function(input, output, session) {
     shift.on=function() { keyboard$shift = T }
     shift.off=function() { keyboard$shift = F }
     is.shift.on=function() { keyboard$shift }
+    shift.value = "18"
 
     observeEvent(input$keyup, {
         key = input$keyup[1]
-        # cat(sprintf("keyup: %s\n", as.character(key)))
-        if (as.character(key) == "16")
+        if (as.character(key) == shift.value)
             shift.off()
     } )
 
     observeEvent(input$keydown, {
+        # browser()
         key = input$keydown[1]
         cat(sprintf("keydown: %s\n", as.character(key)))
-        if (as.character(key) == "16") {
+        if (as.character(key) == shift.value) {
             shift.on()
             return (NULL)
         }
@@ -271,7 +272,7 @@ server = function(input, output, session) {
         xcat0("Hover mouse over sample to get info, shown on bottom panel.")
         xnew()
 
-        xcat0("Hold the shift key while performing all action below.")
+        xcat0("Hold the Option (or Alt) ⌥ key while performing all action below.")
         xcat0("Keyboard keys:")
         xcat1("No key : Press mouse without keyboard to select sample. Press outside samples to cancel selection.")
         xcat1("'X'    : Center on mouse location.")
