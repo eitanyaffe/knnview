@@ -40,6 +40,6 @@ ui = fluidPage(
     $(document).on("keyup", function (e) {
       Shiny.onInputChange("keyup", [e.which,e.timeStamp]);
     });
-	      ')
+	     ')
     )
 )
