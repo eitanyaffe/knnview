@@ -8,8 +8,7 @@ brings attention to samples with non-perfect scores (i.e. <1), and allows to
 explore the disribution of distances between a sample and its neighbors. 
 
 This tool was developed by Eitan Yaffe. It is distributed under the GNU General
-Public License v3.0. If you have questions or comments please contact Eitan
-Yaffe at eitan.yaffe@gmail.com.
+Public License v3.0. If you have questions or comments please contact eitan.yaffe@gmail.com.
 
 ## Pre-requisites
 

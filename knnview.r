@@ -140,6 +140,7 @@ plot.nn=function(df, df.plot, D, col.field, label.field, show.labels,
     mai = par("mai")
     mai[2] = 1.2
     par(mai=mai)
+
     mm = barplot(1-Dx, names.arg=names(Dx), col=Dcols, las=2, xlim=c(0,mmax), width=0.6, space=0.4,
                  horiz=T, xlab="Similarity", main=paste("Nearest neighbours of", selected.sample), border=NA)
 
