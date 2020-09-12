@@ -86,6 +86,7 @@ plot.tnse.internal=function(df, df.purity, col.field, label.field,
             max.count = min(nn.count, length(ix.end))
             ix.end = ix.end[1:max.count]
         }
+        # browser()
         segments(x0=df$x[ix.start], x1=df$x[ix.end], y0=df$y[ix.start], y1=df$y[ix.end], col="lightgray")
     }
 
@@ -224,7 +225,7 @@ knnview.cluster=function(
     }
 
     # single run example
-    cat(sprintf("Computing purity scores fo %d samples, k=%d\n", dim(D)[1], k))
+    cat(sprintf("Computing purity scores for %d samples, k=%d\n", dim(D)[1], k))
 
     if (!run.recursive) {
         weights = rep(1, dim(df)[1])
